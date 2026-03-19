@@ -20,7 +20,7 @@
 
     <button (click)="save()" type="submit" class="btn btn-primary">Salvar</button>
   </form>
-  tal de produtos: {{products.length}}
+  total de produtos: {{products().length}}
 
 <table class="table">
   <thead>
@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of products">
+    <tr *ngFor="let p of products()">
       <td>{{p.name}}</td>
       <td>{{p.description}}</td>
       <td>{{p.price}}</td>

@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": 10.99,
+      "description": "Description for Product 1"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": 20.99,
+      "description": "Description for Product 2"
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 30.99,
+      "description": "Description for Product 3"
+    },
+    {
+      "id": 4,
+      "name": "1",
+      "description": "1",
+      "price": "1"
+    }
+  ],
+
+  "clients": [
+    {
+      "id": 1,
+      "name": "Alanis Guimarães Chaves",
+      "age": 19,
+      "gender": "Feminino",
+      "phone": 15997586324
+    },
+    {
+      "id": 2,
+      "name": "Bruno Machado Pires",
+      "age": 24,
+      "gender": "Masculino",
+      "phone": 1195357441
+    },
+    {
+      "id": 3,
+      "name": "Carlos Delgado Firmenes",
+      "age": 28,
+      "gender": "Masculino",
+      "phone": 11963578405
+    },
+    {
+      "id": 4,
+      "name": "Fernanda Maireles Corvis",
+      "age": 22,
+      "gender": "Feminino",
+      "phone": 15965984122
+    }
+  ]
+
+}

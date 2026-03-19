@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from '../product';
+import { ProductService } from '../product-service';
 
 @Component({
   selector: 'app-product',
@@ -8,11 +9,13 @@ import { Product } from '../product';
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
   formGroupProduct: FormGroup;
-   products: Product[] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  products = signal<Product[]>([]);
+
+
+  constructor(private formBuilder: FormBuilder, private service: ProductService) {
 
     this.formGroupProduct = formBuilder.group({
       id: [''],
@@ -22,10 +25,23 @@ export class ProductComponent {
     });
 
   }
+  ngOnInit(): void {
+     this.service.getAllProducts().subscribe(
+          {
+              next: json => this.products.set(json)
+          }
+      );
+  }
 
   save() {
-    this.products.push(this.formGroupProduct.value);
-    this.formGroupProduct.reset();
+   this.service.save(this.formGroupProduct.value).subscribe(
+     {
+       next: json => {
+          this.products.update(products => [...products, json]);
+          this.formGroupProduct.reset();
+       }
+     }
+    );
   }
 
 }

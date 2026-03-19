@@ -26,7 +26,7 @@
     <button (click)="save()" type="submit" class="btn btn-primary">Salvar</button>
   </form>
 
-  tal de clientes: {{clients.length}}
+  total de clientes: {{clients().length}}
 
 <table class="table">
   <thead>
@@ -38,7 +38,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of clients">
+    <tr *ngFor="let c of clients()">
       <td>{{c.name}}</td>
       <td>{{c.age}}</td>
       <td>{{c.gender}}</td>
