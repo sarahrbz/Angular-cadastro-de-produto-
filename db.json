@@ -23,9 +23,38 @@
       "name": "1",
       "description": "1",
       "price": "1"
+    },
+    {
+      "id": 5,
+      "name": "Product 5",
+      "description": "Description for Product 5",
+      "price": "50.99"
+    },
+    {
+      "id": 6,
+      "name": "8",
+      "description": "",
+      "price": ""
+    },
+    {
+      "id": 7,
+      "name": "9",
+      "description": null,
+      "price": null
+    },
+    {
+      "id": 8,
+      "name": "9",
+      "description": null,
+      "price": null
+    },
+    {
+      "id": 9,
+      "name": "5",
+      "description": null,
+      "price": null
     }
   ],
-
   "clients": [
     {
       "id": 1,
@@ -54,7 +83,13 @@
       "age": 22,
       "gender": "Feminino",
       "phone": 15965984122
+    },
+    {
+      "id": 5,
+      "name": "Sarah Ribeiro de Souza ",
+      "age": "19",
+      "gender": "Feminino ",
+      "phone": "15 998354002"
     }
   ]
-
 }

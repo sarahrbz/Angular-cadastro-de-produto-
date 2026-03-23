@@ -10,9 +10,10 @@ import { ClientService } from '../client-service';
   styleUrl: './client-component.css',
 })
 export class ClientComponent implements OnInit{ // tem que digitar implements OnInit e dps CTRL + . no ClientComponent para implementar o OnInit
+  formGroupClient: FormGroup;
 
   clients = signal<Client[]>([]);
-  formGroupClient: FormGroup;
+
 
   constructor(private formBuilder: FormBuilder, private service: ClientService) {
 
@@ -26,12 +27,24 @@ export class ClientComponent implements OnInit{ // tem que digitar implements On
 
   }
   ngOnInit(): void {
+    this.service.getAllClients().subscribe(
+          {
+              next: json => this.clients.set(json)
+          }
+      );
 
   }
 
   save() {
-    //this.clients.push(this.formGroupClient.value);
-    this.formGroupClient.reset();
+    this.service.save(this.formGroupClient.value).subscribe(
+     {
+       next: json => {
+          this.clients.update(clients => [...clients, json]);
+          this.formGroupClient.reset();
+       }
+     }
+    );
+
   }
 
 }
