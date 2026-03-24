@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   formGroupProduct: FormGroup;
 
   products = signal<Product[]>([]);
+  isEditing: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder, private service: ProductService) {
@@ -53,5 +54,23 @@ export class ProductComponent implements OnInit {
       }
     )
   }
+
+   onClickUpdate(product: Product) {
+     this.formGroupProduct.setValue(product);
+     this.isEditing = true;
+  }
+
+  update() {
+        this.service.update(this.formGroupProduct.value).subscribe(
+        {
+          next: json => {
+            this.products.update(products => products.map(p => p.id === json.id ? json : p));
+            this.isEditing = false;
+            this.formGroupProduct.reset();
+          }
+        }
+      )
+  }
+
 
 }

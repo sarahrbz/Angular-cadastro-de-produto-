@@ -18,7 +18,8 @@
       <input formControlName="price" type="text" class="form-control" id="inputPrice">
     </div>
 
-    <button (click)="save()" type="submit" class="btn btn-primary">Salvar</button>
+    <button *ngIf="!isEditing"   type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+    <button *ngIf="isEditing"   type="submit" class="btn btn-primary"  (click)="update()">Atualizar</button>
   </form>
   total de produtos: {{products().length}}
 
@@ -29,6 +30,7 @@
       <th scope="col">Descrição</th>
       <th scope="col">Preço</th>
       <th scope="col">Remover</th>
+      <th scope="col">Alterar</th>
     </tr>
   </thead>
   <tbody>
@@ -41,6 +43,11 @@
             Remover
           </button>
       </td>
+       <td>
+      <button class="btn btn-secondary"  (click)="onClickUpdate(p)" >
+            Alterar
+      </button>
+       </td>
     </tr>
    </tbody>
 </table>

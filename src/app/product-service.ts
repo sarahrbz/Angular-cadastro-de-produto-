@@ -25,4 +25,10 @@ export class ProductService {
     return this.http.delete<void>(`${this.apiUrl}/${product.id}`);
   }
 
+  // HTTP PUT: http://localhost:3000/products/3
+  // HTTP Request Body: Product
+  update(product: Product): Observable<Product>{
+    return this.http.put<Product>(`${this.apiUrl}/${product.id}`, product); //PUT -> manda todo o objeto (tudo oq foi e até oq não foi alterado) e PAT atualiza só oq foi alterado
+}
+
 }
