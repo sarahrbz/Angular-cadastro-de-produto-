@@ -13,6 +13,7 @@ export class ClientComponent implements OnInit{ // tem que digitar implements On
   formGroupClient: FormGroup;
 
   clients = signal<Client[]>([]);
+  isEditing: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder, private service: ClientService) {
@@ -56,5 +57,24 @@ export class ClientComponent implements OnInit{ // tem que digitar implements On
       }
     )
   }
+
+  onClickUpdate(client: Client) {
+     this.formGroupClient.setValue(client);
+      this.isEditing = true;
+
+  }
+
+   update() {
+         this.service.update(this.formGroupClient.value).subscribe(
+        {
+          next: json => {
+            this.clients.update(clients => clients.map(c => c.id === json.id ? json : c));
+            this.isEditing = false;
+            this.formGroupClient.reset();
+          }
+        }
+      )
+  }
+
 
 }

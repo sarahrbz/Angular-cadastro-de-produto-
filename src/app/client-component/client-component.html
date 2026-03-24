@@ -23,7 +23,8 @@
       <input formControlName="phone" type="text" class="form-control" id="inputphone">
     </div>
 
-    <button (click)="save()" type="submit" class="btn btn-primary">Salvar</button>
+    <button *ngIf="!isEditing"   type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+    <button *ngIf="isEditing"   type="submit" class="btn btn-primary"    (click)="update()">Atualizar</button>
   </form>
 
   total de clientes: {{clients().length}}
@@ -36,6 +37,7 @@
       <th scope="col">Gênero</th>
       <th scope="col">Telefone</th>
       <th scope="col">Remover</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +50,11 @@
           <button class="btn btn-danger" (click)="delete(c)">
             Remover
           </button>
+      </td>
+       <td>
+      <button class="btn btn-secondary"  (click)="onClickUpdate(c)" >
+            Alterar
+      </button>
       </td>
     </tr>
    </tbody>
