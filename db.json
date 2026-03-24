@@ -2,57 +2,15 @@
   "products": [
     {
       "id": 1,
-      "name": "Product 1",
-      "price": 10.99,
-      "description": "Description for Product 1"
+      "name": "Produto 1",
+      "description": "descrição do produto 1",
+      "price": "10.99"
     },
     {
       "id": 2,
-      "name": "Product 2",
-      "price": 20.99,
-      "description": "Description for Product 2"
-    },
-    {
-      "id": 3,
-      "name": "Product 3",
-      "price": 30.99,
-      "description": "Description for Product 3"
-    },
-    {
-      "id": 4,
-      "name": "1",
-      "description": "1",
-      "price": "1"
-    },
-    {
-      "id": 5,
-      "name": "Product 5",
-      "description": "Description for Product 5",
-      "price": "50.99"
-    },
-    {
-      "id": 6,
-      "name": "8",
-      "description": "",
-      "price": ""
-    },
-    {
-      "id": 7,
-      "name": "9",
-      "description": null,
-      "price": null
-    },
-    {
-      "id": 8,
-      "name": "9",
-      "description": null,
-      "price": null
-    },
-    {
-      "id": 9,
-      "name": "5",
-      "description": null,
-      "price": null
+      "name": "produto 2",
+      "description": "descrição do produto 2",
+      "price": "20.99"
     }
   ],
   "clients": [
@@ -90,6 +48,13 @@
       "age": "19",
       "gender": "Feminino ",
       "phone": "15 998354002"
+    },
+    {
+      "id": 6,
+      "name": "Fernanda frança",
+      "age": "23",
+      "gender": "Feminino",
+      "phone": "11 9985236425"
     }
   ]
 }

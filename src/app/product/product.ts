@@ -44,4 +44,14 @@ export class ProductComponent implements OnInit {
     );
   }
 
+   delete(product: Product) {
+    this.service.delete(product).subscribe(
+      {
+        next: () => {
+          this.products.update(products => products.filter(p => p.id !== product.id));
+        }
+      }
+    )
+  }
+
 }

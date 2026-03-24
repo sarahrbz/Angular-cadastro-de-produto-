@@ -9,6 +9,7 @@ import { Product } from './product';
 export class ProductService {
   apiUrl = "http://localhost:3000/products"; //endereço da chamada HTTP
 
+  //protocolo HTTP
   constructor(private http: HttpClient) { } //por meio do constructor injetamos o HTTPCLIENT
 
   getAllProducts(): Observable<Product[]>{  //serviço getAllProducts -> devolve o array de produtos
@@ -17,6 +18,11 @@ export class ProductService {
 
   save(product: Product): Observable<Product>{ //quando salvo, devolvo apenas UM produto
     return this.http.post<Product>(this.apiUrl, product);
+  }
+
+   // HTTP DELETE: http://localhost:3000/products/6
+  delete(product: Product): Observable<void>{ // DELETE do HTTP
+    return this.http.delete<void>(`${this.apiUrl}/${product.id}`);
   }
 
 }
