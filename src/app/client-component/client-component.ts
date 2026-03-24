@@ -47,4 +47,14 @@ export class ClientComponent implements OnInit{ // tem que digitar implements On
 
   }
 
+   delete(client: Client) {
+    this.service.delete(client).subscribe(
+      {
+        next: () => {
+          this.clients.update(clients => clients.filter(c => c.id !== client.id));
+        }
+      }
+    )
+  }
+
 }

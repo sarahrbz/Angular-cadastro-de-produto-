@@ -35,6 +35,7 @@
       <th scope="col">Idade</th>
       <th scope="col">Gênero</th>
       <th scope="col">Telefone</th>
+      <th scope="col">Remover</th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +44,11 @@
       <td>{{c.age}}</td>
       <td>{{c.gender}}</td>
       <td>{{c.phone}}</td>
+      <td>
+          <button class="btn btn-danger" (click)="delete(c)">
+            Remover
+          </button>
+      </td>
     </tr>
    </tbody>
 </table>

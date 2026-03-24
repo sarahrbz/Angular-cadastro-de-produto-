@@ -18,4 +18,9 @@ export class ClientService {
   save(client: Client): Observable<Client>{
     return this.http.post<Client>(this.apiUrl, client);
   }
+
+  //HTTP DELETE: http://localhost:3000/clients/4
+  delete(client: Client): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${client.id}`);
+  }
 }
